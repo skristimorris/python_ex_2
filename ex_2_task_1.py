@@ -60,7 +60,8 @@ def is_valid_email_address(s):
         return 6, "part after @ and before . must only contain alfanum chars"
     
     C = s.split('.')[1] # get string after .
-    if C.find("com" or "edu" or "org" or "gov") == False:
+    g = C in "com edu org gov"
+    if g == False:
         return 7, "past-dot part invalid, must be from: com, edu, org, gov"
 
     return None, "Seems legit"
