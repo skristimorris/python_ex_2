@@ -70,9 +70,15 @@ else:
     B = AB.split('.')[0] # get string before . and after @
     C = s.split('.')[1] # get string after .
 
-    t = "@" in s
-    if t == False:  
-        return 1, 'Must have exactly one @!'
+    t = "@" in s # set var t to true or false depending on if @ is in str s
+    if t == False:  # if t is false (@ is not found in str s)
+        return 1, 'Must have exactly one @!' 
+
+    if len(A) > 3 and len(A) < 16 and A.isalnum(): # if str before @ is > 3 and < 16 chars in length and is alphanumeric
+        return 2, 'pre @ part must contain 3 - 16 alfanum chars'
+
+    if A.isalnum(): # if str before @ is > 3 and < 16 chars is alphanumeric
+        return 3, 'pre @ part must only contain alfanum chars')
     
 
 # This if ensures that the following is NOT run if this file was imported as a module (which we'll do next!)
