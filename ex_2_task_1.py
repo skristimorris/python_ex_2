@@ -38,33 +38,6 @@ def is_valid_email_address(s):
     
     # your code here
 
-s = "charding!@iastate.edu" # email input
-A = s.split('@')[0] # get string before @ 
-#print(A) # example output: "charding"
-#print(len(A)) # tested to see how many characters in A for if/else condition
-
-if len(A) > 3 and len(A) < 16 and A.isalnum(): # if A is > 3 and < 16 in length and is alphanumeric
-#if A.isalnum():
-    print("2") # do this...
-else:
-    print("no") # else do this...
-
-AB = s[s.index('@')+1:] # get string after @ 
-B = AB.split('.')[0] # get string before .
-#print(B) # example output: iastate
-if len(B) > 2 and len(B) < 8 and B.isalnum(): # if B is > 2 and < 8 in length and is alphanumeric
-    print("5") # do this...
-else:
-    print("not right") # else do this...
-
-C = s.split('.')[1] # get string after .
-#print(C) # example output: edu
-if C == "com" or C == "edu" or C == "org" or C == "gov": # if C = com, edu, org, or gov
-    print("7") # do this...
-else:
-    print("wrong") # else do this...
-
-
     A = s.split('@')[0] # get string before @ 
     AB = s[s.index('@')+1:] # get string after @ 
     B = AB.split('.')[0] # get string before . and after @
@@ -83,7 +56,7 @@ else:
     d = "." in s
     if d == False:
         return 4, 'post @ part must have exactly one dot!'
-        
+
     if len(B) > 2 and len(B) < 8 and B.isalnum():
         return 5, "part after @ and before . must contain 2 - 8 alfanum chars"
 
@@ -92,6 +65,8 @@ else:
     
     if C == "com" or C == "edu" or C == "org" or C == "gov":
         return 7, "past-dot part invalid, must be from: com, edu, org, gov"
+
+    return None, "Seems legit"
 
 # This if ensures that the following is NOT run if this file was imported as a module (which we'll do next!)
 if __name__ == "__main__":
