@@ -38,32 +38,38 @@ def is_valid_email_address(s):
     
     # your code here
 
-    t = "@" in s # set var t to true or false depending on if @ is in str s
-    if t == False:  # if t is false (@ is not found in str s)
+    # search to see if s contains @ before looking at each str (A, B, C)
+    t = "@" in s # set var t to true or false depending on if @ is in s
+    if t == False:  # if t is false (@ is not found in s)
         return 1, 'Must have exactly one @!' 
 
-    A = s.split('@')[0] # get string before @ 
-    if len(A) < 3 or len(A) > 16 and A.isalnum(): # if str before @ is > 3 and < 16 chars in length and is alphanumeric
+    # create var A for first part of s pre @
+    A = s.split('@')[0] # split s into list at @ and return index 0 to get str before @ and set to A
+    if len(A) < 3 or len(A) > 16: # if A is < 3 or > 16 chars in length
         return 2, 'pre @ part must contain 3 - 16 alfanum chars'
-    elif A.isalnum() == False: # if str before @ is > 3 and < 16 chars is alphanumeric
+    elif A.isalnum() == False: # if A is not alphanumeric
         return 3, 'pre @ part must only contain alfanum chars'
 
-    d = "." in s
-    if d == False:
+    # search to see if s contains .
+    d = "." in s # set var d to true or false depending on if . is in s
+    if d == False: # if d is false (. is not found in s)
         return 4, 'post @ part must have exactly one dot!'
 
-    B = s[s.index('@')+1:]
-    B = B.split(".")[0]
-    if len(B) < 2 or len(B) > 8 and B.isalnum():
+    # create var B for 2nd part of s post @ and pre .
+    B = s[s.index('@')+1:] # index s at @ and include the first character after @ until the end and set to B
+    B = B.split(".")[0] # take B from above and split it at . and return index 0 to get str before . and overwrite to B
+    if len(B) < 2 or len(B) > 8: # if B is < 2 or > 8 chars in length
         return 5, "part after @ and before . must contain 2 - 8 alfanum chars"
-    elif B.isalnum() == False:
+    elif B.isalnum() == False: # if B is not alphanumeric
         return 6, "part after @ and before . must only contain alfanum chars"
     
-    C = s.split('.')[1] # get string after .
-    g = C in "com edu org gov"
-    if g == False:
+    # get str after .
+    C = s.split('.')[1] # split s into list at . and return index 1 to get str after . and set to A
+    g = C in "com edu org gov" # set var g to true or false depending on if C is in str
+    if g == False: # if g is false (C is not found in str)
         return 7, "past-dot part invalid, must be from: com, edu, org, gov"
 
+    #if s passes all previous conditions
     return None, "Seems legit"
 
 # This if ensures that the following is NOT run if this file was imported as a module (which we'll do next!)
@@ -89,5 +95,3 @@ if __name__ == "__main__":
             print(e, s) # OK
         else:
             print(f"{e} - error: {s}, error code: {r}") # Error
-
-        
