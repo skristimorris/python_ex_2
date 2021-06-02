@@ -63,7 +63,7 @@ def is_valid_email_address(s):
     if B.isalnum() == False:
         return 6, "part after @ and before . must only contain alfanum chars"
     
-    if C == "com" or C == "edu" or C == "org" or C == "gov":
+    if C.find("com" or "edu" or "org" or "gov") == False:
         return 7, "past-dot part invalid, must be from: com, edu, org, gov"
 
     return None, "Seems legit"
