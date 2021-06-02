@@ -69,6 +69,10 @@ else:
     AB = s[s.index('@')+1:] # get string after @ 
     B = AB.split('.')[0] # get string before . and after @
     C = s.split('.')[1] # get string after .
+
+    t = "@" in s
+    if t == False:  
+        return 1, 'Must have exactly one @!'
     
 
 # This if ensures that the following is NOT run if this file was imported as a module (which we'll do next!)
