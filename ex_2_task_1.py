@@ -78,7 +78,11 @@ else:
         return 2, 'pre @ part must contain 3 - 16 alfanum chars'
 
     if A.isalnum(): # if str before @ is > 3 and < 16 chars is alphanumeric
-        return 3, 'pre @ part must only contain alfanum chars')
+        return 3, 'pre @ part must only contain alfanum chars'
+
+    d = "." in s
+    if d == False:
+        return 4, 'post @ part must have exactly one dot!'
     
 
 # This if ensures that the following is NOT run if this file was imported as a module (which we'll do next!)
