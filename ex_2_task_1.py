@@ -64,6 +64,11 @@ if C == "com" or C == "edu" or C == "org" or C == "gov": # if C = com, edu, org,
 else:
     print("wrong") # else do this...
 
+
+    A = s.split('@')[0] # get string before @ 
+    AB = s[s.index('@')+1:] # get string after @ 
+    B = AB.split('.')[0] # get string before . and after @
+    C = s.split('.')[1] # get string after .
     
 
 # This if ensures that the following is NOT run if this file was imported as a module (which we'll do next!)
