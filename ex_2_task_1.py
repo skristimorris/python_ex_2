@@ -39,8 +39,8 @@ def is_valid_email_address(s):
     # your code here
 
     A = s.split('@')[0] # get string before @ 
-    AB = s[s.index('@')+1:] # get string after @ 
-    B = AB.split('.')[0] # get string before . and after @
+    B = s[s.index('@')+1:]
+    B = B.split(".")[0]
     C = s.split('.')[1] # get string after .
 
     t = "@" in s # set var t to true or false depending on if @ is in str s
