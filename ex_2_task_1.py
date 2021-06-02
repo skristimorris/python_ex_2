@@ -40,14 +40,21 @@ def is_valid_email_address(s):
 
 s = "charding!@iastate.edu" # email input
 A = s.split('@')[0] # get string before @ 
-print(A)
+#print(A) # example output: "charding"
+#print(len(A)) # tested to see how many characters in A for if/else condition
+
+if len(A) > 3 and len(A) < 16 and A.isalnum(): # if A is > 3 and < 16 and is alphanumeric
+#if A.isalnum():
+    print("2") # do this...
+else:
+    print("no") # else do this...
 
 AB = s[s.index('@')+1:] # get string after @ 
 B = AB.split('.')[0] # get string before .
-print(B)
+#print(B) # example output: iastate
 
 C = s.split('.')[1] # get string after .
-print(C)
+#print(C) # example output: edu
 
 
     
