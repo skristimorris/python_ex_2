@@ -50,7 +50,7 @@ def is_valid_email_address(s):
     if len(A) < 3 or len(A) > 16 and A.isalnum(): # if str before @ is > 3 and < 16 chars in length and is alphanumeric
         return 2, 'pre @ part must contain 3 - 16 alfanum chars'
 
-    if A.isalnum(): # if str before @ is > 3 and < 16 chars is alphanumeric
+    if A.isalnum() == False: # if str before @ is > 3 and < 16 chars is alphanumeric
         return 3, 'pre @ part must only contain alfanum chars'
 
     d = "." in s
@@ -60,7 +60,7 @@ def is_valid_email_address(s):
     if len(B) < 2 or len(B) > 8 and B.isalnum():
         return 5, "part after @ and before . must contain 2 - 8 alfanum chars"
 
-    if B.isalnum():
+    if B.isalnum() == False:
         return 6, "part after @ and before . must only contain alfanum chars"
     
     if C == "com" or C == "edu" or C == "org" or C == "gov":
