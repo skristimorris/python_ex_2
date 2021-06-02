@@ -38,7 +38,16 @@ def is_valid_email_address(s):
     
     # your code here
 
-    
+s = "charding!@iastate.edu" # email input
+A = s.split('@')[0] # get string before @ 
+print(A)
+
+AB = s[s.index('@')+1:] # get string after @ 
+B = AB.split('.')[0] # get string before .
+print(B)
+
+C = s.split('.')[1] # get string after .
+print(C)
 
 
     
