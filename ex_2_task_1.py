@@ -47,7 +47,7 @@ def is_valid_email_address(s):
     if t == False:  # if t is false (@ is not found in str s)
         return 1, 'Must have exactly one @!' 
 
-    if len(A) > 3 and len(A) < 16 and A.isalnum(): # if str before @ is > 3 and < 16 chars in length and is alphanumeric
+    if len(A) < 3 or len(A) > 16 and A.isalnum(): # if str before @ is > 3 and < 16 chars in length and is alphanumeric
         return 2, 'pre @ part must contain 3 - 16 alfanum chars'
 
     if A.isalnum(): # if str before @ is > 3 and < 16 chars is alphanumeric
@@ -57,7 +57,7 @@ def is_valid_email_address(s):
     if d == False:
         return 4, 'post @ part must have exactly one dot!'
 
-    if len(B) > 2 and len(B) < 8 and B.isalnum():
+    if len(B) < 2 or len(B) > 8 and B.isalnum():
         return 5, "part after @ and before . must contain 2 - 8 alfanum chars"
 
     if B.isalnum():
