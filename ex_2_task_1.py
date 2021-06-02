@@ -59,7 +59,10 @@ else:
 
 C = s.split('.')[1] # get string after .
 #print(C) # example output: edu
-
+if C == "com" or C == "edu" or C == "org" or C == "gov": # if C = com, edu, org, or gov
+    print("7") # do this...
+else:
+    print("wrong") # else do this...
 
     
 
