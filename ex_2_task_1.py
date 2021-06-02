@@ -38,31 +38,28 @@ def is_valid_email_address(s):
     
     # your code here
 
-    A = s.split('@')[0] # get string before @ 
-    B = s[s.index('@')+1:]
-    B = B.split(".")[0]
-    C = s.split('.')[1] # get string after .
-
     t = "@" in s # set var t to true or false depending on if @ is in str s
     if t == False:  # if t is false (@ is not found in str s)
         return 1, 'Must have exactly one @!' 
 
+    A = s.split('@')[0] # get string before @ 
     if len(A) < 3 or len(A) > 16 and A.isalnum(): # if str before @ is > 3 and < 16 chars in length and is alphanumeric
         return 2, 'pre @ part must contain 3 - 16 alfanum chars'
-
-    if A.isalnum() == False: # if str before @ is > 3 and < 16 chars is alphanumeric
+    elif A.isalnum() == False: # if str before @ is > 3 and < 16 chars is alphanumeric
         return 3, 'pre @ part must only contain alfanum chars'
 
     d = "." in s
     if d == False:
         return 4, 'post @ part must have exactly one dot!'
 
+    B = s[s.index('@')+1:]
+    B = B.split(".")[0]
     if len(B) < 2 or len(B) > 8 and B.isalnum():
         return 5, "part after @ and before . must contain 2 - 8 alfanum chars"
-
-    if B.isalnum() == False:
+    elif B.isalnum() == False:
         return 6, "part after @ and before . must only contain alfanum chars"
     
+    C = s.split('.')[1] # get string after .
     if C.find("com" or "edu" or "org" or "gov") == False:
         return 7, "past-dot part invalid, must be from: com, edu, org, gov"
 
