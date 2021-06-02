@@ -83,7 +83,15 @@ else:
     d = "." in s
     if d == False:
         return 4, 'post @ part must have exactly one dot!'
+        
+    if len(B) > 2 and len(B) < 8 and B.isalnum():
+        return 5, "part after @ and before . must contain 2 - 8 alfanum chars"
+
+    if B.isalnum():
+        return 6, "part after @ and before . must only contain alfanum chars"
     
+    if C == "com" or C == "edu" or C == "org" or C == "gov":
+        return 7, "past-dot part invalid, must be from: com, edu, org, gov"
 
 # This if ensures that the following is NOT run if this file was imported as a module (which we'll do next!)
 if __name__ == "__main__":
