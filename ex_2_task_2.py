@@ -53,6 +53,9 @@ while attempts_left > 0: # as long as attempts left > 0 then execute code below
         print("Number of attempts left:", attempts_left) # print str and number from attempts_left var
         continue # continue to run the loop -> program will start back at beginning and run through code as long as attempts_left > 0
 
+if attempts_left == 0: # once attempt_left = 0 then
+    gave_up = True # set gave_up from False to True
+
 # your code - end
 if not gave_up:
     print("valid email", email)
