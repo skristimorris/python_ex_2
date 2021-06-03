@@ -30,13 +30,17 @@
 
 # import your function from the previous .py file as a module (you can abbreviate it)
 # use ex_2_task_2 here instead once your function works!
-from ex_2_task_1_solution import is_valid_email_address as is_valid 
+from ex_2_task_1 import is_valid_email_address as is_valid 
 
 gave_up = False
 attempts_left = 3
 
 # your code - start
 
+# create while loop to run
+while attempts_left > 0: # as long as attempts left > 0 then execute code below
+    email = input("Enter email address.") # create input box for user to type in email and set to var email
+    attempts_left = attempts_left - 1 # take var attempts_left which is set to 3 and subtract 1 and set back to attempts_left
 
 # your code - end
 if not gave_up:
