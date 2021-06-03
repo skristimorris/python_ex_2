@@ -42,6 +42,17 @@ while attempts_left > 0: # as long as attempts left > 0 then execute code below
     email = input("Enter email address.") # create input box for user to type in email and set to var email
     attempts_left = attempts_left - 1 # take var attempts_left which is set to 3 and subtract 1 and set back to attempts_left
 
+    r, s = is_valid(email) # call to is_valid function to check if email is valid and set result to r and error message str to s
+    if r == None: # if result is None then
+        print(email, "is valid.") # print the email and "is valid"
+        break # stop the loop
+    else: # if the result is not None then
+        print(email, "is invalid!") # print str and "is invalid!"
+        print("Reason:", s) # print str and the str s that has the error code from function is_valid
+        print("Please enter a valid email.") # print str
+        print("Number of attempts left:", attempts_left) # print str and number from attempts_left var
+        continue # continue to run the loop -> program will start back at beginning and run through code as long as attempts_left > 0
+
 # your code - end
 if not gave_up:
     print("valid email", email)
